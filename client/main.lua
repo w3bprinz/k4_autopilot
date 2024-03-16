@@ -50,17 +50,15 @@ AddEventHandler("k4_autopilot:autopilotStop", function(source)
   if IsPedInAnyVehicle(player) then
     local vehicle = GetVehiclePedIsIn(player, false)
     ClearPedTasks(player)
-    -- smooth slowdown and stop:
-    SetVehicleForwardSpeed(vehicle,19.0)
+    SetVehicleForwardSpeed(vehicle, 19.0)
     Citizen.Wait(200)
-    SetVehicleForwardSpeed(vehicle,15.0)
+    SetVehicleForwardSpeed(vehicle, 15.0)
     Citizen.Wait(200)
-    SetVehicleForwardSpeed(vehicle,11.0)
+    SetVehicleForwardSpeed(vehicle, 11.0)
     Citizen.Wait(200)
-    SetVehicleForwardSpeed(vehicle,6.0)
+    SetVehicleForwardSpeed(vehicle, 6.0)
     Citizen.Wait(200)
-    SetVehicleForwardSpeed(vehicle,0.0)
-    --
+    SetVehicleForwardSpeed(vehicle, 0.0)
     k4_Notification(Translate('autopilot_disabled'))
     autopilotEnabled = false
   else
@@ -95,7 +93,6 @@ Citizen.CreateThread(function()
               local player = PlayerPedId()
               local vehicle = GetVehiclePedIsIn(player, false)
               ClearPedTasks(player)
-              -- smooth slowdown and stop:
               SetVehicleForwardSpeed(vehicle,19.0)
               Citizen.Wait(200)
               SetVehicleForwardSpeed(vehicle,15.0)
@@ -105,7 +102,6 @@ Citizen.CreateThread(function()
               SetVehicleForwardSpeed(vehicle,6.0)
               Citizen.Wait(200)
               SetVehicleForwardSpeed(vehicle,0.0)
-              --
               k4_Notification(Translate('destination_reached'))
               autopilotEnabled = false
            end
